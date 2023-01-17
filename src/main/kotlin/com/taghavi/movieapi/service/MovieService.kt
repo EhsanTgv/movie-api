@@ -9,4 +9,6 @@ interface MovieService {
     fun getMovies(): List<MovieDTO>
 
     fun getMovie(id: Int): MovieDTO
+
+    fun updateMovie(movieDTO: MovieDTO): MovieDTO
 }

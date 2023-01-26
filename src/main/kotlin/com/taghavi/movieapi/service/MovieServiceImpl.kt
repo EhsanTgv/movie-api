@@ -47,4 +47,13 @@ class MovieServiceImpl(
         movieRepository.save(movieMapper.toEntity(movieDTO))
         return movieDTO
     }
+
+    override fun deleteMovie(id: Int) {
+        val exists = movieRepository.existsById(id)
+
+        if (!exists)
+            throw MovieException("Movie with id $id is not present")
+
+        movieRepository.deleteById(id)
+    }
 }
